@@ -51,11 +51,11 @@
 
 #### **Coaster Screen**
 
-#### ![Image](images/HOME.png)
+#### ![Image](images/HomeScreen.png)
 
-#### **Add Coaster Screens**
+#### **About Screen**
 
-#### ![Image](images/)
+#### ![Image](images/About.png)
 
 ---
 
@@ -65,8 +65,10 @@
 
 ## **Credits**
 
-### **Images:** [ReadME Image](https://www.thrillist.com/travel/nation/most-exciting-new-theme-park-rides-opening)
+### **Images:** [About Page Image](https://www.thrillist.com/travel/nation/most-exciting-new-theme-park-rides-opening)
 
 ### **Images:** [Google]()
 
 ### [Best Roller Coasters in America](https://www.thrillist.com/travel/nation/best-roller-coasters-in-the-us)
+
+### [Facts about Roller Coasters](https://www.worldsoffun.com/blog/2020/science-of-roller-coasters#:~:text=Over%202%2C400%20roller%20coasters%20exist%20in%20the%20world%20today.)
