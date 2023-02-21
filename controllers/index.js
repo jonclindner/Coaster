@@ -114,6 +114,30 @@ const deleteUser = async (req, res) => {
   }
 }
 
+const getReviewById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const review = await Reviews.findById(id)
+    if (review) {
+      return res.status(200).json({ review })
+    }
+    return res.status(404).send('Review with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const updateReview = async (req, res) => {
+  try {
+    const review = await Reviews.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(review)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createCoaster,
   getAllCoaster,
@@ -123,5 +147,7 @@ module.exports = {
   createReview,
   deleteReview,
   createUser,
-  deleteUser
+  deleteUser,
+  getReviewById,
+  updateReview
 }
