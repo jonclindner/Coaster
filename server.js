@@ -1,8 +1,10 @@
 const express = require('express')
 const routes = require('./routes')
 const db = require('./db')
+
 const cors = require('cors')
 const logger = require('morgan')
+
 
 // require() imports and middleware here ^ ///////
 
@@ -12,8 +14,9 @@ const app = express()
 app.use(logger('dev'))
 app.use(cors())
 
+app.use(cors())
 app.use(express.json())
-
+app.use(logger('dev'))
 // app.use() middleware here ^ ///////////////////
 
 app.use('/api', routes)
