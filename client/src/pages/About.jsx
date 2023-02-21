@@ -11,7 +11,7 @@ const About = () => {
     <div className="relative bg-white mt-24">
       <img
         className="h-56 w-full bg-gray-50 object-cover lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2"
-        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2850&q=80"
+        src="https://camo.githubusercontent.com/877bc354d17c102a33dad61b62f4235208730c58a2961fa5d92454aff1675175/68747470733a2f2f617373657473332e746872696c6c6973742e636f6d2f76312f696d6167652f333133303639392f31323030783633302f666c617474656e3b63726f705f646f776e3b776562703d6175746f3b6a7065675f7175616c6974793d3730"
         alt=""
       />
       <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
