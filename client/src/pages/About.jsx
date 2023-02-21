@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 
 const About = () => {
   const stats = [
@@ -8,6 +9,7 @@ const About = () => {
 ]
 
   return (
+    <>
     <div className="relative bg-white mt-24">
       <img
         className="h-56 w-full bg-gray-50 object-cover lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2"
@@ -37,6 +39,8 @@ const About = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 
