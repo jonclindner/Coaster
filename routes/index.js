@@ -19,4 +19,6 @@ router.put('/review/:id', controllers.updateReview)
 
 router.post('/user', controllers.createUser)
 router.delete('/user/:id', controllers.deleteUser)
+
+router.post('/login', controllers.loginUser)
 module.exports = router
