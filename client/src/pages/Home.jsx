@@ -15,15 +15,16 @@ const Home = () => {
   },[])
 
   return rides && (
-    <div className="bg-slate-500 m-2 rounded-2xl ">
+    <div className=" m-4 rounded-2xl ">
       {rides.map((ride) => (
         <Card 
+          key={ride._id}
+          id={ride._id}
           height={ride.height} 
           image={ride.image} 
           length={ride.length} 
           location={ride.location} 
-          name={ride.name} 
-          reviews={ride.reviews} 
+          name={ride.name}
           time={ride.time} 
           video={ride.video}/>
       ))}
