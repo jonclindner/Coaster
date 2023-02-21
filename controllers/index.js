@@ -1,6 +1,6 @@
 const Coaster = require('../models/coaster')
 const Reviews = require('../models/reviews')
-// const User = require('../models/user')
+const User = require('../models/user')
 
 const createCoaster = async (req, res) => {
   try {
@@ -88,6 +88,32 @@ const deleteReview = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
+const createUser = async (req, res) => {
+  try {
+    const user = await new User(req.body)
+    await user.save()
+    return res.status(201).json({
+      user
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await User.findByIdAndDelete(id)
+    console.log(deleted)
+    if (deleted) {
+      return res.status(200).send('User deleted')
+    }
+    throw new Error('User not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createCoaster,
   getAllCoaster,
@@ -95,5 +121,7 @@ module.exports = {
   updateCoaster,
   deleteCoaster,
   createReview,
-  deleteReview
+  deleteReview,
+  createUser,
+  deleteUser
 }
