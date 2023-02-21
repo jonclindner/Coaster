@@ -21,7 +21,7 @@ const Nav = () => {
           <div className="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
             <div className="flex items-center">
               <a href="/">
-                <span className="sr-only">SwishSesh</span>
+                <span className="sr-only">Coaster</span>
                 <TbRollercoaster className="mx-auto h-12 w-auto text-slate-100" />
                 {/* <img className="h-10 w-auto" src="https://i.imgur.com/YrHjqIw.png" alt="" /> */}
               </a>
@@ -47,7 +47,7 @@ const Nav = () => {
                 </button>
               )}
               <a
-                href="/profile"
+                href="/"
                 className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-800 hover:bg-indigo-50"
               >
                 {sessionStorage.getItem("user") ? (
