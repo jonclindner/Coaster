@@ -48,7 +48,7 @@ const Nav = () => {
               )}
               <a
                 href="/profile"
-                className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-slate-800 hover:bg-indigo-50"
+                className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-800 hover:bg-indigo-50"
               >
                 {sessionStorage.getItem("user") ? (
                   <p>My Profile</p>

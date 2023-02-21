@@ -1,7 +1,7 @@
 import { TbRollercoaster } from "react-icons/tb"
 import jwt_decode from "jwt-decode"
 import { useEffect } from "react"
-import Profile from "./Profile"
+import Home from "./Home"
 import axios from "axios"
 /*global google*/
 
@@ -48,10 +48,12 @@ const SignIn = ({ setUser }) => {
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <TbRollercoaster className="mx-auto h-12 w-auto text-red-700" />
+            <TbRollercoaster className="mx-auto h-12 w-auto text-indigo-800" />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to browse&nbsp;
-              <span className="text-red-700 hover:text-red-600">Coaster</span>
+              <span className="text-indigo-800 hover:text-indigo-700">
+                Coaster
+              </span>
             </h2>
           </div>
           <form
@@ -65,7 +67,7 @@ const SignIn = ({ setUser }) => {
       </div>
     </div>
   ) : (
-    <Profile userId={sessionStorage.getItem("user")} />
+    <Home />
   )
 }
 

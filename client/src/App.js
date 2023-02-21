@@ -15,7 +15,7 @@ function App() {
       <main className="h-96">
         <Routes>
           <Route path="/profile" element={<Profile />} />
-          {user === "" ? (
+          {!user === "" ? (
             <Route path="/" element={<Home />} />
           ) : (
             <Route path="/" element={<SignIn setUser={setUser} />} />
