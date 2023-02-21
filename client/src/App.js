@@ -26,9 +26,6 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   )
 }
