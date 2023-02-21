@@ -1,7 +1,7 @@
 import { TbRollercoaster } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 
-const Nav = () => {
+const Nav = ({ setUser }) => {
   const navigate = useNavigate()
 
   const navigation = [
@@ -11,17 +11,18 @@ const Nav = () => {
 
   const handleClick = () => {
     sessionStorage.removeItem("user")
-    navigate("/")
+    setUser("")
+    navigate("/about")
   }
 
   return (
     <>
-      <header className="bg-slate-800">
+      <header className="bg-slate-800 fixed top-0 z-50 w-full ">
         <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
           <div className="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
             <div className="flex items-center">
               <a href="/">
-                <span className="sr-only">SwishSesh</span>
+                <span className="sr-only">Coaster</span>
                 <TbRollercoaster className="mx-auto h-12 w-auto text-slate-100" />
                 {/* <img className="h-10 w-auto" src="https://i.imgur.com/YrHjqIw.png" alt="" /> */}
               </a>
@@ -46,16 +47,14 @@ const Nav = () => {
                   Logout
                 </button>
               )}
-              <a
-                href="/profile"
-                className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-slate-800 hover:bg-indigo-50"
-              >
-                {sessionStorage.getItem("user") ? (
-                  <p>My Profile</p>
-                ) : (
+              {!sessionStorage.getItem("user") && (
+                <a
+                  href="/"
+                  className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-800 hover:bg-indigo-50"
+                >
                   <p>Sign In</p>
-                )}
-              </a>
+                </a>
+              )}
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">

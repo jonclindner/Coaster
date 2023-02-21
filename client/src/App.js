@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom"
+import ViewCoaster from "./pages/ViewCoaster"
 import Footer from "./components/Footer"
-import Profile from "./pages/Profile"
 import SignIn from "./pages/SignIn"
 import Nav from "./components/Nav"
+import About from "./pages/About"
 import { useState } from "react"
 import Home from "./pages/Home"
 
@@ -11,18 +12,23 @@ function App() {
 
   return (
     <>
-      <header><Nav /></header>
+      <header>
+        <Nav setUser={setUser} />
+      </header>
       <main className="h-96">
         <Routes>
-          <Route path="/profile" element={<Profile />} />
-          {user === "" ? (
-            <Route path="/" element={<Home />} />
+          {!user === "" ? (
+            <Route path="/" element={<Home user={user} />} />
           ) : (
             <Route path="/" element={<SignIn setUser={setUser} />} />
           )}
+          <Route path="/viewCoaster/:id" element={<ViewCoaster />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
-      <footer><Footer /></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
