@@ -15,18 +15,21 @@ const UpdateComment = () => {
     event.preventDefault()
 
     ///////////////UPDATE ROUTES!!!!!!!!!!!!//////////////////////
-    await axios.post(`http://localhost:3001/api/comments/${rideId}`, formState)
+    await axios.post(
+      `http://localhost:3001/api/coaster/${coasterId}/review`,
+      formState
+    )
     setFormState({})
     navigate(`/`)
   }
   useEffect(() => {
-    const getParkDetails = async () => {
+    const getCommentDetails = async () => {
       let response = await axios.get(
         `http://localhost:3001/api/parks/${parkId}`
       )
-      setFormState(response.data.park)
+      setFormState(response.data.comment)
     }
-    getParkDetails()
+    getCommentDetails()
   }, [])
   return (
     <form onSubmit={handleSubmit}>
@@ -44,30 +47,10 @@ const UpdateComment = () => {
         onChange={handleChange}
         value={formState.comment}
       />
-      {/* <label htmlFor="material">Ground Surface Material:</label>
-      <select id="material" onChange={handleChange} value={formState.material}>
-        <option value="dirt">Dirt</option>
-        <option value="grass">Cultivated Grass</option>
-        <option value="gravel">Gravel</option>
-        <option value="mix">Mix of Materials</option>
-      </select>
-      <label htmlFor="description">Park Description</label>
-      <input
-        type="text"
-        id="description"
-        onChange={handleChange}
-        value={formState.description}
-      />
-      <label htmlFor="image">Image URL:</label>
-      <input
-        type="text"
-        id="image"
-        onChange={handleChange}
-        value={formState.image}
-      /> */}
+
       <button type="submit">Submit Comment</button>
-      <Link to={`/parks/delete/${parkDetails._id}`}>
-        <button>Delete Park</button>
+      <Link to={`/parks/delete/${commentDetails._id}`}>
+        <button>Delete review</button>
       </Link>
     </form>
   )
