@@ -5,8 +5,9 @@ const User = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
-    rides: { type: String, required: true },
-    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    rides: [{ type: Schema.Types.ObjectId, ref: 'Coaster' }],
+    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+    picture: { type: String, required: true }
   },
   { timestamps: true }
 )
