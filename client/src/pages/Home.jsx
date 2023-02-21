@@ -1,9 +1,9 @@
-
+import Card from "../components/Card"
 
 const Home = () => {
   return (
-    <div>
-      
+    <div className="bg-slate-700 m-2 rounded-2xl">
+      <Card />
     </div>
   )
 }
