@@ -50,7 +50,7 @@ const SignIn = ({ setUser }) => {
           <div>
             <TbRollercoaster className="mx-auto h-12 w-auto text-red-700" />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Sign in to register for&nbsp;
+              Sign in to browse&nbsp;
               <span className="text-red-700 hover:text-red-600">Coaster</span>
             </h2>
           </div>
