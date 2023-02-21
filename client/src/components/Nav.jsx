@@ -1,7 +1,7 @@
 import { TbRollercoaster } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 
-const Nav = () => {
+const Nav = ({ setUser }) => {
   const navigate = useNavigate()
 
   const navigation = [
@@ -11,7 +11,8 @@ const Nav = () => {
 
   const handleClick = () => {
     sessionStorage.removeItem("user")
-    navigate("/")
+    setUser("")
+    navigate("/about")
   }
 
   return (

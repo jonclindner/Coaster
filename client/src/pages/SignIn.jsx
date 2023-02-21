@@ -12,11 +12,11 @@ const SignIn = ({ setUser }) => {
       const res = await axios.post(`/api/user`, {
         name: userObject.name,
         email: userObject.email,
-        rides: [""],
-        picture: ""
+        picture: userObject.picture,
       })
       setUser(res.data.user._id)
       sessionStorage.setItem("user", res.data.user._id)
+      console.log(res.data.user._id)
     } catch (err) {
       if (err.response.status === 500) {
         try {
