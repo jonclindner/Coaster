@@ -13,9 +13,10 @@ router.put('/coaster/:id', controllers.updateCoaster)
 router.delete('/coaster/:id', controllers.deleteCoaster)
 
 router.post('/coaster/:id/review', controllers.createReview)
-
 router.delete('/review/:id', controllers.deleteReview)
+router.get('/review/:id', controllers.getReviewById)
+router.put('/review/:id', controllers.updateReview)
 
-router.post('/coaster/:id/user', controllers.createUser)
+router.post('/user', controllers.createUser)
 router.delete('/user/:id', controllers.deleteUser)
 module.exports = router
