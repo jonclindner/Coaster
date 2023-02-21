@@ -12,9 +12,8 @@ const SignIn = ({ setUser }) => {
       const res = await axios.post(`/api/user`, {
         name: userObject.name,
         email: userObject.email,
-        picture: userObject.picture,
-        experience: "Elite",
-        hasPayment: false,
+        rides: [""],
+        picture: ""
       })
       setUser(res.data.user._id)
       sessionStorage.setItem("user", res.data.user._id)
