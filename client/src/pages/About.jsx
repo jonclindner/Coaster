@@ -5,7 +5,7 @@ const About = () => {
   { id: 1, name: 'Roller coasters in the World', value: '2,400+' },
   { id: 2, name: 'Different variations of roller coasters', value: '37' },
   { id: 3, name: 'First Roller Coaster was built in', value: '1817' },
-  { id: 4, name: 'Average Coast to build a Roller Coaster', value: '$8M' },
+  { id: 4, name: 'Average cost to build a Roller Coaster', value: '$8M' },
 ]
 
   return (
