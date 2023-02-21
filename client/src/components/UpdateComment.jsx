@@ -4,8 +4,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 const UpdateComment = () => {
   let navigate = useNavigate()
 
-  let { rideId } = useParams()
-  console.log(rideId)
+  let { reviewId } = useParams()
+  console.log(reviewId)
   const [formState, setFormState] = useState({})
 
   const handleChange = (event) => {
@@ -15,19 +15,17 @@ const UpdateComment = () => {
     event.preventDefault()
 
     ///////////////UPDATE ROUTES!!!!!!!!!!!!//////////////////////
-    await axios.post(
-      `http://localhost:3001/api/coaster/${coasterId}/review`,
-      formState
-    )
+    await axios.put(`http://localhost:3001/api/review/${reviewId}`, formState)
     setFormState({})
     navigate(`/`)
   }
   useEffect(() => {
     const getCommentDetails = async () => {
       let response = await axios.get(
-        `http://localhost:3001/api/parks/${parkId}`
+        `http://localhost:3001/api/review/${reviewId}`
       )
       setFormState(response.data.comment)
+      console.log(response.data)
     }
     getCommentDetails()
   }, [])
@@ -48,9 +46,9 @@ const UpdateComment = () => {
         value={formState.comment}
       />
 
-      <button type="submit">Submit Comment</button>
-      <Link to={`/parks/delete/${commentDetails._id}`}>
-        <button>Delete review</button>
+      <button type="submit">Submit Updated Comment</button>
+      <Link to={`/review/delete/${commentDetails._id}`}>
+        <button>Delete Comment</button>
       </Link>
     </form>
   )

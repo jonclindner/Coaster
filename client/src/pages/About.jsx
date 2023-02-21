@@ -1,13 +1,15 @@
+import Footer from "../components/Footer"
 
 const About = () => {
   const stats = [
   { id: 1, name: 'Roller coasters in the World', value: '2,400+' },
   { id: 2, name: 'Different variations of roller coasters', value: '37' },
   { id: 3, name: 'First Roller Coaster was built in', value: '1817' },
-  { id: 4, name: 'Average Coast to build a Roller Coaster', value: '$8M' },
+  { id: 4, name: 'Average cost to build a Roller Coaster', value: '$8M' },
 ]
 
   return (
+    <>
     <div className="relative bg-white mt-24">
       <img
         className="h-56 w-full bg-gray-50 object-cover lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2"
@@ -36,6 +38,8 @@ const About = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 
