@@ -31,7 +31,7 @@
 
 ### **Objective**
 
-### To track of all the items one has in their closet.
+### To track some of the most popular roller coaster rides around the world and there reviews.
 
 ### **Flow**
 
@@ -63,14 +63,12 @@
 
 ## **Future Updates:**
 
-- Feature that help clients put clothing items together (Suggestions)
+-
 
 ---
 
 ## **Credits**
 
-### **Images:** [Sole Collector](https://solecollector.com/news/2015/09/celebrity-sneaker-closets)
+### **Images:** []()
 
 ### **Images:** [Google]()
-
-### **Background Image:** [Empty Closet](https://www.bostoncloset.com/wp-content/uploads/2020/03/Closet-Background.jpg)

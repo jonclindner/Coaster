@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const User = new Schema(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     rides: [{ type: Schema.Types.ObjectId, ref: 'Coaster' }],
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
     picture: { type: String, required: true }
