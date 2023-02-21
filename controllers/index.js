@@ -16,7 +16,7 @@ const createCoaster = async (req, res) => {
 
 const getAllCoaster = async (req, res) => {
   try {
-    const coaster = await Coaster.find()
+    const coaster = await Coaster.find().populate('reviews')
     return res.status(200).json({ coaster })
   } catch (error) {
     return res.status(500).send(error.message)
@@ -26,7 +26,7 @@ const getAllCoaster = async (req, res) => {
 const getCoasterById = async (req, res) => {
   try {
     const { id } = req.params
-    const coaster = await Coaster.findById(id)
+    const coaster = await Coaster.findById(id).populate('reviews')
     if (coaster) {
       return res.status(200).json({ coaster })
     }

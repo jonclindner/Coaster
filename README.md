@@ -4,7 +4,7 @@
 
 ### **By: Chikodi Merenu, John Lindner, Manuel Alonso**
 
-#### [Chikodi's LinkedIn](www.linkedin.com/in/chikodimerenu) | [Jon's LinkedIn](https://www.linkedin.com/in/jon-lindner-807847183/) | [Manuel's LinkedIn]() | [Github](https://github.com/jonclindner/Coaster) | [Trello](https://trello.com/b/2kT4s1jY/coaster)
+#### [Chikodi's LinkedIn](www.linkedin.com/in/chikodimerenu) | [Jon's LinkedIn](https://www.linkedin.com/in/jon-lindner-807847183/) | [Manuel's LinkedIn](https://www.linkedin.com/in/mannyaalonso/) | [Github](https://github.com/jonclindner/Coaster) | [Trello](https://trello.com/b/2kT4s1jY/coaster)
 
 ---
 
@@ -31,11 +31,13 @@
 
 ### **Objective**
 
-### To track some of the most popular roller coaster rides around the world and there reviews.
+### To track some of the most popular roller coaster rides around the world and their reviews.
 
 ### **Flow**
 
-###
+### As summer vacation is quickly approaching, families can easily use our application, Coaster, to plan out a trip to see some of the most popular roller coasters around the world, and read comments and reviews.
+
+---
 
 ##
 
@@ -47,28 +49,24 @@
 
 ### **_Screenshots_**
 
-#### **Wardrobe Screen**
+#### **Coaster Screen**
 
-#### ![Image](images/Wardrobe.png)
+#### ![Image](images/HOME.png)
 
-#### **Add Clothes Screens**
+#### **Add Coaster Screens**
 
-#### ![Image](images/AddClothes.png)
-
-#### **About Screens**
-
-#### ![Image](images/About.png)
+#### ![Image](images/)
 
 ---
 
 ## **Future Updates:**
 
--
-
 ---
 
 ## **Credits**
 
-### **Images:** []()
+### **Images:** [ReadME Image](https://www.thrillist.com/travel/nation/most-exciting-new-theme-park-rides-opening)
 
 ### **Images:** [Google]()
+
+### [Best Roller Coasters in America](https://www.thrillist.com/travel/nation/best-roller-coasters-in-the-us)
