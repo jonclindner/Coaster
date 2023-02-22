@@ -10,7 +10,7 @@
 
 ## **_Description_**
 
-### ![](https://assets3.thrillist.com/v1/image/3130699/1200x630/flatten;crop_down;webp=auto;jpeg_quality=70)
+### ![](images/Poster.png)
 
 ####
 
@@ -52,6 +52,10 @@
 #### **Coaster Screen**
 
 #### ![Image](images/HomeScreen.png)
+
+#### **Add Coaster Screen**
+
+#### ![Image](images/AddCoaster.png)
 
 #### **About Screen**
 
