@@ -1,12 +1,36 @@
 import { useNavigate } from "react-router-dom"
 import { BsHeart } from "react-icons/bs"
 import { BsHeartFill } from "react-icons/bs"
+import { TfiClose } from "react-icons/tfi"
+import { AiOutlineEdit } from "react-icons/ai"
+import axios from "axios"
 
-const Card = ({ id, height, image, length, location, name, reviews, time, video }) => {
+const Card = ({
+  id,
+  height,
+  image,
+  length,
+  location,
+  name,
+  reviews,
+  time,
+  video,
+  userId,
+  getRides
+}) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
     navigate(`/viewCoaster/${id}`)
+  }
+
+  const handleDelete = async () => {
+    await axios.delete(`/api/coaster/${id}`)
+    getRides()
+  }
+
+  const handleEdit = () => {
+    navigate(`/editCoaster/${id}`)
   }
 
   return (
@@ -23,6 +47,21 @@ const Card = ({ id, height, image, length, location, name, reviews, time, video 
             </div>
           </div>
           <div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:py-24 xl:px-16">
+            {userId === sessionStorage.getItem("user") && (
+              <div className="flex gap-4">
+                <TfiClose
+                  size={20}
+                  onClick={handleDelete}
+                  className="text-white cursor-pointer"
+                />
+
+                <AiOutlineEdit
+                  size={22}
+                  onClick={handleEdit}
+                  className="text-white cursor-pointer"
+                />
+              </div>
+            )}
             <figure className="relative isolate pt-6 sm:pt-12">
               <blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9 ">
                 <p>{name}</p>

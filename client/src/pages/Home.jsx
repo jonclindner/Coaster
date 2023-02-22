@@ -39,6 +39,8 @@ const Home = () => {
               reviews={ride.reviews}
               time={ride.time}
               video={ride.video}
+              userId={ride.userId}
+              getRides={getRides}
             />
           ))}
         </div>
