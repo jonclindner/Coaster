@@ -5,7 +5,6 @@ const UpdateCoaster = () => {
   let navigate = useNavigate()
 
   let { id } = useParams()
-  console.log(id)
   const [formState, setFormState] = useState({})
 
   const handleChange = (event) => {
@@ -14,14 +13,13 @@ const UpdateCoaster = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    await axios.put(`http://localhost:3001/api/coaster/${id}`, formState)
+    await axios.put(`/api/coaster/${id}`, formState)
     setFormState({})
     navigate(`/`)
   }
   useEffect(() => {
     const getCoasterDetails = async () => {
-      let response = await axios.get(`http://localhost:3001/api/coaster/${id}`)
-      console.log(response.data.coaster)
+      let response = await axios.get(`/api/coaster/${id}`)
       setFormState(response.data.coaster)
     }
     getCoasterDetails()
