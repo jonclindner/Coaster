@@ -12,7 +12,8 @@ const Add = () => {
     length: '',
     time: '',
     image: '',
-    video: ''
+    video: '',
+    userId: sessionStorage.getItem('user')
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -22,8 +23,7 @@ const Add = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    await axios.post('http://localhost:3001/api/coaster', formState)
+    await axios.post('/api/coaster', formState)
     setFormState(initialState)
     navigate('/')
   }
@@ -36,8 +36,6 @@ const Add = () => {
       <form
         onSubmit={handleSubmit}
         className="space-y-6"
-        action="#"
-        method="POST"
       >
         <div className="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
           <div className="md:grid md:grid-cols-3 md:gap-6">

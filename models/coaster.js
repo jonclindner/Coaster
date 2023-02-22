@@ -10,7 +10,8 @@ const Coaster = new Schema(
     time: { type: String, required: true },
     image: { type: String, required: true },
     video: { type: String, required: true },
-    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+    userId: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 )
