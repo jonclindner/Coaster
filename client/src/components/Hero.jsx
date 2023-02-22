@@ -3,7 +3,7 @@ import { TbRollercoaster } from "react-icons/tb"
 
 const Hero = ({ executeScroll }) => {
   return (
-    <div className="relative bg-white mt-24">
+    <div className="relative bg-white lg:mt-24 mt-44">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
           <div className="mx-auto max-w-2xl lg:mx-0">
