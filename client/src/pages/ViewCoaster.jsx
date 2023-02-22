@@ -12,7 +12,6 @@ const CoasterDetails = () => {
 
   const [coasterDetails, setCoasterDetails] = useState({})
   const [coasterReviews, setCoasterReviews] = useState([])
-  const [toggleEdit, setToggleEdit] = useState(false)
   const [formState, setFormState] = useState(initialState)
   const [editState, setEditState] = useState(initialState)
 
@@ -96,11 +95,9 @@ const CoasterDetails = () => {
                       id={comment.id}
                       name={comment.name} 
                       comment={comment.comment}
-                      toggleEdit={toggleEdit}
                       handleChange={handleChange}
                       handleEdit={handleEdit}
                       handleDelete={handleDelete} 
-                      setToggleEdit={setToggleEdit} 
                       handleEditChange={handleEditChange}
                       editState={editState}
                       />
