@@ -2,6 +2,7 @@ import Card from "../components/Card"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import Footer from "../components/Footer"
+import Hero from "../components/Hero"
 
 const Home = () => {
   const [rides, setRides] = useState()
@@ -17,6 +18,7 @@ const Home = () => {
 
   return rides && (
     <>
+    <Hero />
     <div className=" m-8 rounded-2xl ">
       {rides.map((ride) => (
         <Card 

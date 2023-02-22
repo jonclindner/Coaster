@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import ViewCoaster from './pages/ViewCoaster'
-import Footer from './components/Footer'
 import SignIn from './pages/SignIn'
+import Add from './components/Add'
 import Nav from './components/Nav'
 import About from './pages/About'
 import { useState } from 'react'
@@ -24,6 +24,7 @@ function App() {
           )}
           <Route path="/viewCoaster/:id" element={<ViewCoaster />} />
           <Route path="/about" element={<About />} />
+          <Route path="/add" element={<Add />} /> 
         </Routes>
       </main>
     </>
