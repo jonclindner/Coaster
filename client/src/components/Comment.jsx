@@ -11,7 +11,7 @@ const Comment = ({ _id, id, name, comment, handleEdit, handleDelete, handleEditC
         </h2>
         <p className="mt-4 text-md text-gray-500 sm:mt-3">{comment}</p>
         {id === sessionStorage.getItem("user") && (
-          <div>
+          <div className="mt-4">
             <button
               onClick={() => setToggleEdit(!toggleEdit)}
               className="bg-black w-16 text-white rounded-2xl text-xs m-1"
