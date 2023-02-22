@@ -17,7 +17,7 @@ const Nav = ({ setUser }) => {
 
   return (
     <>
-      <header className="bg-slate-800 fixed top-0 z-50 w-full ">
+      <header className="bg-black fixed top-0 z-50 w-full ">
         <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
           <div className="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
             <div className="flex items-center">

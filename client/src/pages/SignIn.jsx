@@ -16,7 +16,7 @@ const SignIn = ({ setUser }) => {
       })
       setUser(res.data.user._id)
       sessionStorage.setItem("user", res.data.user._id)
-      console.log(res.data.user._id)
+      sessionStorage.setItem("name", res.data.user.name)
     } catch (err) {
       if (err.response.status === 500) {
         try {
@@ -25,6 +25,7 @@ const SignIn = ({ setUser }) => {
           if (res.data.message === "Login successful") {
             setUser(res.data.user._id)
             sessionStorage.setItem("user", res.data.user._id)
+            sessionStorage.setItem("name", res.data.user.name)
           }
         } catch (e) {}
       }
