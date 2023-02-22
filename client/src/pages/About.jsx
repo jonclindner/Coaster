@@ -24,7 +24,7 @@ const About = () => {
               Trusted by thousands of people&nbsp;worldwide
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Our mission is to advice the everyday citizen about the most popular amusement park rides all over the nation!
+              Our mission is to advise the everyday citizen about the most popular amusement park rides all over the nation!
             </p>
             <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
               {stats.map((stat) => (
