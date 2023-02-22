@@ -1,7 +1,7 @@
 import { TbRollercoaster } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 
-const Nav = ({ setUser }) => {
+const Nav = () => {
   const navigate = useNavigate()
 
   const navigation = [
@@ -11,7 +11,6 @@ const Nav = ({ setUser }) => {
 
   const handleClick = () => {
     sessionStorage.removeItem("user")
-    setUser("")
     navigate("/about")
   }
 
@@ -40,17 +39,24 @@ const Nav = ({ setUser }) => {
             </div>
             <div className="ml-10 space-x-4">
               {sessionStorage.getItem("user") && (
-                <button
-                  onClick={handleClick}
-                  className="inline-block rounded-md border border-transparent bg-slate-400 py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
-                >
-                  Logout
-                </button>
+                <div className="flex col-auto">
+                  <button
+                    onClick={handleClick}
+                    className="inline-block rounded-md border border-transparent bg-slate-400 py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
+                  >
+                    Logout
+                  </button>
+                  <img
+                    className="w-10 h-10 ml-2 rounded-full object-cover"
+                    src={sessionStorage.getItem('picture')}
+                    alt="name"
+                  />
+                </div>
               )}
               {!sessionStorage.getItem("user") && (
                 <a
                   href="/"
-                  className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-800 hover:bg-indigo-50"
+                  className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-600 hover:bg-indigo-50"
                 >
                   <p>Sign In</p>
                 </a>

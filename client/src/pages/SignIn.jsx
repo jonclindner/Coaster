@@ -14,18 +14,20 @@ const SignIn = ({ setUser }) => {
         email: userObject.email,
         picture: userObject.picture,
       })
-      setUser(res.data.user._id)
+      setUser(res.data.user)
       sessionStorage.setItem("user", res.data.user._id)
       sessionStorage.setItem("name", res.data.user.name)
+      sessionStorage.setItem("picture", res.data.user.picture)
     } catch (err) {
       if (err.response.status === 500) {
         try {
           let email = { email: userObject.email }
           let res = await axios.post("/api/login", email)
           if (res.data.message === "Login successful") {
-            setUser(res.data.user._id)
+            setUser(res.data.user)
             sessionStorage.setItem("user", res.data.user._id)
             sessionStorage.setItem("name", res.data.user.name)
+            sessionStorage.setItem("picture", res.data.user.picture)
           }
         } catch (e) {}
       }
@@ -48,10 +50,10 @@ const SignIn = ({ setUser }) => {
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <TbRollercoaster className="mx-auto h-12 w-auto text-indigo-800" />
+            <TbRollercoaster className="mx-auto h-12 w-auto text-indigo-600" />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to browse&nbsp;
-              <span className="text-indigo-800 hover:text-indigo-700">
+              <span className="text-indigo-600 hover:text-indigo-700">
                 Coaster
               </span>
             </h2>
