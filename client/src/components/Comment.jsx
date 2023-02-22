@@ -1,4 +1,7 @@
-const Comment = ({ _id, id, name, comment, handleEdit, handleDelete, setToggleEdit, toggleEdit, handleEditChange, editState}) => {
+import { useState } from "react"
+
+const Comment = ({ _id, id, name, comment, handleEdit, handleDelete, handleEditChange, editState}) => {
+  const [toggleEdit, setToggleEdit] = useState(false)
 
   return (
     <div>
