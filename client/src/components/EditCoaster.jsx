@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Add = () => {
+const EditCoaster = () => {
   let navigate = useNavigate()
   const initialState = {
     name: '',
@@ -190,4 +190,4 @@ const Add = () => {
   )
 }
 
-export default Add
+export default EditCoaster
