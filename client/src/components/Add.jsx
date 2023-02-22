@@ -33,10 +33,7 @@ const Add = () => {
       <h1 className="text-black w-full text-center p-8 text-2xl font-bold">
         Add a Coaster
       </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-6"
-      >
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
@@ -125,7 +122,7 @@ const Add = () => {
                     Feet Length
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="feet-length"
                     id="length"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
