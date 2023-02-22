@@ -16,8 +16,6 @@ const Home = () => {
   const executeScroll = () =>
     myRef.current.scrollIntoView({ behavior: "smooth" })   
 
-  console.log(rides)
-
   useEffect(() => {
     getRides()
   },[])
