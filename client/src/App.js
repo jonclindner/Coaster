@@ -6,7 +6,7 @@ import Nav from './components/Nav'
 import About from './pages/About'
 import { useState } from 'react'
 import Home from './pages/Home'
-//import EditCoaster from "./components/EditCoaster"
+import UpdateCoaster from './components/UpdateCoaster'
 
 function App() {
   const [user, setUser] = useState('')
@@ -25,8 +25,8 @@ function App() {
           )}
           <Route path="/viewCoaster/:id" element={<ViewCoaster />} />
           <Route path="/about" element={<About />} />
-          <Route path="/add" element={<Add />} /> 
-          {/* <Route path="/editCoaster/:id" element={<EditCoaster />} />  */}
+          <Route path="/add" element={<Add />} />
+          <Route path="/editCoaster/:id" element={<UpdateCoaster />} />
         </Routes>
       </main>
     </>
