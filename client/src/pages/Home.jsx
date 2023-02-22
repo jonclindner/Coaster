@@ -17,7 +17,7 @@ const Home = () => {
 
   return rides && (
     <>
-    <div className=" m-4 rounded-2xl ">
+    <div className=" m-8 rounded-2xl ">
       {rides.map((ride) => (
         <Card 
           key={ride._id}

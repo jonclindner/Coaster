@@ -8,8 +8,8 @@ const Card = ({ id, height, image, length, location, name, time, video }) => {
   }
 
   return (
-    <div className="bg-slate-700 pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 rounded-2xl m-4 mt-28">
-      <div className="bg-slate-800 pb-20 sm:pb-24 xl:pb-0 rounded-2xl">
+    <div className="pt-8 pb-16 sm:pt-8 sm:pb-8 xl:pb-8 rounded-2xl m-4 mt-32 ">
+      <div className="bg-black pb-20 sm:pb-24 xl:pb-0 rounded-2xl">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-y-10 gap-x-8 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
           <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
             <div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
@@ -42,12 +42,12 @@ const Card = ({ id, height, image, length, location, name, time, video }) => {
                 <figcaption className="mt-8 text-base mr-4 w-32">
                   <div className="font-semibold text-white">Video</div>
                   <div className="mt-1 text-gray-400">
-                    <a href={video}>Click to watch</a>
+                    <a className="text-indigo-500" href={video} target="_blank" rel="noreferrer" >Click to watch</a>
                   </div>
                 </figcaption>
                 <figcaption className="mt-8 text-base mr-4 w-32">
                   <div className="font-semibold text-white">Comments</div>
-                  <div onClick={handleClick} className="mt-1 text-gray-400 cursor-pointer">See more</div>
+                  <div onClick={handleClick} className="mt-1 text-gray-400 cursor-pointer text-indigo-500">See more</div>
                 </figcaption>
               </div>
             </figure>

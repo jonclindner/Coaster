@@ -1,78 +1,238 @@
-// import CreateComment from '../components/CreateComment'
-
-// const ViewCoaster = () => {
-//   return (
-//     <div>
-
-//     </div>
-//   )
-// }
-
-// export default ViewCoaster
-
-import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import Comment from "../components/Comment"
+import axios from "axios"
 
 const CoasterDetails = () => {
+  const initialState = {
+    id: sessionStorage.getItem("user"),
+    name: sessionStorage.getItem("name"),
+    comment: "",
+  }
+
   const [coasterDetails, setCoasterDetails] = useState({})
+  const [coasterReviews, setCoasterReviews] = useState([])
+  const [toggleEdit, setToggleEdit] = useState(false)
+  const [formState, setFormState] = useState(initialState)
+  const [editState, setEditState] = useState(initialState)
 
-  const [CoasterReviews, setCoasterReviews] = useState([])
-
-  let { CoasterId } = useParams()
-  console.log(CoasterId)
+  let { id } = useParams()
 
   const getCoasterDetails = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/coaster/${CoasterId}`
-    )
-    console.log(response.data)
+    const response = await axios.get(`/api/coaster/${id}`)
     setCoasterDetails(response.data.coaster)
+    setCoasterReviews(response.data.coaster.reviews)
   }
-  // const getCoasterReviews = async () => {
-  //   const response = await axios.get(
-  //     `http://localhost:3001/api/reviews/${parkId}`
-  //   )
 
-  // setCoasterReviews(response.data.reviews)
+  const handleChange = (e) => {
+    setFormState({ ...formState, [e.target.id]: e.target.value })
+  }
+
+  const handleEditChange = (e) => {
+    setEditState({ ...formState, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await axios.post(`/api/coaster/${id}/review`, formState)
+    setFormState(initialState)
+    getCoasterDetails()
+  }
+
+  const handleEdit = async (e, id) => {
+    e.preventDefault()
+    await axios.put(`/api/review/${id}`, editState)
+    setEditState(initialState)
+    getCoasterDetails()
+  }
+
+  const handleDelete = async (id) => {
+    await axios.delete(`/api/review/${id}`)
+    getCoasterDetails()
+  }
 
   useEffect(() => {
     getCoasterDetails()
-    // getParkReviews()
   }, [])
 
   return (
-    <div>
-      <div>
-        <h1>{coasterDetails.name}</h1>
-        <h2>{coasterDetails.location}</h2>
-        <h3> {coasterDetails.height}</h3>
-        <p>{coasterDetails.length}</p>
-        <img
-          style={{ display: 'block', maxWidth: '100%' }}
-          src={coasterDetails.image}
-          alt="Park"
-        />
+    coasterReviews && (
+      <div className="bg-white">
+        <main>
+          {/* Header */}
+          <div className="bg-black py-24 sm:py-32 mt-20">
+            <div className="mx-auto max-w-md px-6 sm:max-w-lg lg:max-w-7xl lg:px-8">
+              <h1 className="text-center text-4xl font-bold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none lg:text-6xl">
+                {coasterDetails.name}
+              </h1>
+              <p className="mx-auto mt-6 max-w-3xl text-center text-xl leading-normal text-gray-500">
+                {coasterDetails.location}
+              </p>
+            </div>
+          </div>
 
-        {/* <Link
-          to={`/coasters/update/${coasterDetails._id}`}
-          key={coasterDetails._id}
-        >
-          <button>Update Information</button>
-        </Link>
-        <Link to={`/coasters/delete/${coasterDetails._id}`}>
-          <button>Delete Park</button>
-        </Link> */}
+          {/* Contact Section */}
+          <div className="relative bg-white">
+            <div className="lg:absolute lg:inset-0">
+              <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <img
+                  className="h-56 w-full object-cover lg:absolute lg:h-full"
+                  src={coasterDetails.image}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="relative py-16 px-6 sm:py-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 lg:py-32">
+              <div className="lg:pr-8">
+                <div className="mx-auto max-w-md sm:max-w-lg lg:mx-0">
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Comments
+                  </h2>
+
+                  {coasterReviews.map((comment) => (
+                    <Comment 
+                      key={comment._id} 
+                      _id={comment._id}
+                      id={comment.id}
+                      name={comment.name} 
+                      comment={comment.comment}
+                      toggleEdit={toggleEdit}
+                      handleChange={handleChange}
+                      handleEdit={handleEdit}
+                      handleDelete={handleDelete} 
+                      setToggleEdit={setToggleEdit} 
+                      handleEditChange={handleEditChange}
+                      editState={editState}
+                      />
+                  ))}
+
+                  {/* {coasterReviews.map((comment) => (
+                    <div key={comment._id}>
+                      <div className="mt-4 p-4 rounded-md bg-stone-200">
+                        <h2 className="text-2xl font-bold tracking-tight sm:text-2xl">
+                          {comment.name}
+                        </h2>
+                        <p className="mt-4 text-md text-gray-500 sm:mt-3">
+                          {comment.comment}
+                        </p>
+                        {comment.id === sessionStorage.getItem("user") && (
+                          <div>
+                            <button
+                              onClick={() => setToggleEdit(!toggleEdit)}
+                              className="bg-black w-16 text-white rounded-2xl text-xs m-1"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => handleDelete(comment._id)}
+                              className="bg-black w-16 text-white rounded-2xl text-xs m-1"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
+                   
+                      {toggleEdit ? (
+                        <form
+                          onSubmit={(e) => handleEdit(e, comment._id)}
+                          className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                        >
+                          <div className="sm:col-span-2">
+                            <div className="flex justify-between">
+                              <label
+                                htmlFor="how-can-we-help"
+                                className="block text-sm font-medium text-gray-700"
+                              >
+                                Edit your comment here
+                              </label>
+                              <span
+                                id="how-can-we-help-description"
+                                className="text-sm text-gray-500"
+                              >
+                                Max. 500 characters
+                              </span>
+                            </div>
+                            <div className="mt-1">
+                              <textarea
+                                placeholder={comment.comment}
+                                type="text"
+                                id="comment"
+                                onChange={handleEditChange}
+                                value={editState.comment}
+                                name="comment"
+                                aria-describedby="how-can-we-help-description"
+                                rows={4}
+                                className="block w-full rounded-md border-gray-400 shadow-sm focus:border-grape-500 focus:ring-grape-500 sm:text-sm bg-stone-200"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="text-right sm:col-span-2">
+                            <button
+                              type="submit"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-grape-500 focus:ring-offset-2"
+                            >
+                              Edit
+                            </button>
+                          </div>
+                        </form>
+                      ) : null}
+                   
+                    </div>
+                  ))} */}
+
+                  <form
+                    onSubmit={handleSubmit}
+                    className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                  >
+                    <div className="sm:col-span-2">
+                      <div className="flex justify-between">
+                        <label
+                          htmlFor="how-can-we-help"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Leave your comment here
+                        </label>
+                        <span
+                          id="how-can-we-help-description"
+                          className="text-sm text-gray-500"
+                        >
+                          Max. 500 characters
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <textarea
+                          placeholder="Type in this box..."
+                          type="text"
+                          id="comment"
+                          onChange={handleChange}
+                          value={formState.comment}
+                          name="comment"
+                          aria-describedby="how-can-we-help-description"
+                          rows={4}
+                          className="block w-full rounded-md border-gray-400 shadow-sm focus:border-grape-500 focus:ring-grape-500 sm:text-sm bg-stone-300"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="text-right sm:col-span-2">
+                      <button
+                        type="submit"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-grape-500 focus:ring-offset-2"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
-
-      {/* {coasterReviews?.map((review) => (
-        <div key={review._id}>
-          <h1>Review By: {review.user}</h1>
-
-          <h2>Comment: {review.comment}</h2>
-        </div>
-      ))} */}
-    </div>
+    )
   )
 }
 

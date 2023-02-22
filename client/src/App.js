@@ -15,7 +15,7 @@ function App() {
       <header>
         <Nav setUser={setUser} />
       </header>
-      <main className="h-96">
+      <main className="">
         <Routes>
           {!user === '' ? (
             <Route path="/" element={<Home user={user} />} />
