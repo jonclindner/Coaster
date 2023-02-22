@@ -1,21 +1,23 @@
 import { TbRollercoaster } from "react-icons/tb"
-const Hero = () => {
+
+
+const Hero = ({ executeScroll }) => {
   return (
     <div className="relative bg-white mt-24">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            {/* <TbRollercoaster size={80} className="h-11 text-indigo-600" /> */}
+            <TbRollercoaster size={80} className="h-11 text-indigo-600" />
             <div className="hidden sm:mt-32 sm:flex lg:mt-16">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 Find the best rollercoasters{" "}
-                <a
-                  href="/" rel="noreferrer"
+                <button
+                  onClick={executeScroll}
                   className="whitespace-nowrap font-semibold text-indigo-600"
                 >
                   <span className="absolute inset-0" aria-hidden="true" />
                   <span aria-hidden="true">&rarr;</span>
-                </a>
+                </button>
               </div>
             </div>
             <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">

@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
+import { BsHeart } from "react-icons/bs"
+import { BsHeartFill } from "react-icons/bs"
 
-const Card = ({ id, height, image, length, location, name, time, video }) => {
+const Card = ({ id, height, image, length, location, name, reviews, time, video }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -42,12 +44,29 @@ const Card = ({ id, height, image, length, location, name, time, video }) => {
                 <figcaption className="mt-8 text-base mr-4 w-32">
                   <div className="font-semibold text-white">Video</div>
                   <div className="mt-1 text-gray-400">
-                    <a className="text-indigo-500" href={video} target="_blank" rel="noreferrer" >Click to watch</a>
+                    <a
+                      className="text-indigo-500"
+                      href={video}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Click to watch
+                    </a>
                   </div>
                 </figcaption>
                 <figcaption className="mt-8 text-base mr-4 w-32">
-                  <div className="font-semibold text-white">Comments</div>
-                  <div onClick={handleClick} className="mt-1 text-gray-400 cursor-pointer text-indigo-500">See more</div>
+                  <div className="font-semibold text-white">
+                    Comments ({reviews.length})
+                  </div>
+                  <div
+                    onClick={handleClick}
+                    className="mt-1 text-gray-400 cursor-pointer text-indigo-500"
+                  >
+                    See more
+                  </div>
+                </figcaption>
+                <figcaption className="mt-8 text-base mr-4 w-32">
+                  {/* <BsHeart className="text-white cursor-pointer" size={30} /> */}
                 </figcaption>
               </div>
             </figure>
