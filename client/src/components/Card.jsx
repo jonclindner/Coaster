@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom"
-import { BsHeart } from "react-icons/bs"
-import { BsHeartFill } from "react-icons/bs"
-import { TfiClose } from "react-icons/tfi"
 import { AiOutlineEdit } from "react-icons/ai"
+import { useNavigate } from "react-router-dom"
+import { TfiClose } from "react-icons/tfi"
 import axios from "axios"
 
 const Card = ({

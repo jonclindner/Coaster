@@ -1,6 +1,5 @@
 import { TbRollercoaster } from "react-icons/tb"
 
-
 const Hero = ({ executeScroll }) => {
   return (
     <div className="relative bg-white lg:mt-24 mt-44">

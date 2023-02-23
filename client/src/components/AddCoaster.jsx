@@ -1,9 +1,8 @@
-import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
 
-const EditCoaster = () => {
+const AddCoaster = () => {
   let navigate = useNavigate()
   const initialState = {
     name: '',
@@ -21,11 +20,14 @@ const EditCoaster = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await axios.post('/api/coaster', formState)
-    setFormState(initialState)
-    navigate('/')
+    if (sessionStorage.getItem('user')) {
+      await axios.post('/api/coaster', formState)
+      setFormState(initialState)
+      navigate('/')
+    }
   }
 
   return (
@@ -190,4 +192,4 @@ const EditCoaster = () => {
   )
 }
 
-export default EditCoaster
+export default AddCoaster
