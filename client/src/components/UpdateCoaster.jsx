@@ -13,10 +13,11 @@ const UpdateCoaster = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    await axios.put(`/api/coaster/${id}`, formState)
-    setFormState({})
-    navigate(`/`)
+    if (sessionStorage.getItem('user')) {
+      await axios.put(`/api/coaster/${id}`, formState)
+      setFormState({})
+      navigate(`/`)
+    }
   }
   useEffect(() => {
     const getCoasterDetails = async () => {
