@@ -1,8 +1,8 @@
-import Card from "../components/Card"
 import { useState, useEffect, useRef } from "react"
-import axios from "axios"
 import Footer from "../components/Footer"
+import Card from "../components/Card"
 import Hero from "../components/Hero"
+import axios from "axios"
 
 const Home = () => {
   const [rides, setRides] = useState()

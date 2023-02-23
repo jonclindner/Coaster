@@ -1,6 +1,7 @@
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+
 const UpdateCoaster = () => {
   let navigate = useNavigate()
 
@@ -12,10 +13,11 @@ const UpdateCoaster = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    await axios.put(`/api/coaster/${id}`, formState)
-    setFormState({})
-    navigate(`/`)
+    if (sessionStorage.getItem('user')) {
+      await axios.put(`/api/coaster/${id}`, formState)
+      setFormState({})
+      navigate(`/`)
+    }
   }
   useEffect(() => {
     const getCoasterDetails = async () => {
